@@ -1,3 +1,6 @@
+// site title
+var siteTitle = '\\ PRGTのコール /'
+
 // api install
 var tag = document.createElement('script');
 

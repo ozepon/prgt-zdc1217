@@ -2,9 +2,15 @@
 .ticketText {
   text-indent: .5rem
 }
+.prgt_title {
+  font-weight: bold;
+}
+.prgt_subtitle {
+  font-size: 1rem;
+}
 /* call list */
 .call_ul {
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 .call_li {
   padding: 1rem;
@@ -14,6 +20,7 @@
 .call_li__image {
   background-position: center;
   background-size: cover;
+  border-radius: .5rem;
 }
 .comming_soon_tag {
   position: absolute;
