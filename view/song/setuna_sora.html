@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <title>PRGT/セツナソラ</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="/js/app.js"></script>
+</head>
+<body>
+  <header class="nav is-info">
+    <div class="nav-left">
+      <span class="nav-item">
+        <a href='/'>Party Rockets GT</a>
+      </span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-item">
+        <a href="https://ticket.rakuten.co.jp/music/jpop/idle/RTRNPRF" class="button is-primary" target='_blank'>
+          <i class="fa fa-ticket" aria-hidden="true"></i>
+          <span class="ticketText">2017.12.17 Ticket</span>
+        </a>
+    </div>  
+  </header>
+  <div class="youtube_wrap">
+    <div id="player"></div>
+  </div>
+  <div id="lyrics">
+    <iframe src="../lyrics/setuna_sora.html" frameborder="0"></iframe>
+    
+  <div class="ticket_link">
+    <a href="https://ticket.rakuten.co.jp/music/jpop/idle/RTRNPRF" class="button is-primary" target='_blank'>
+      <i class="fa fa-ticket" aria-hidden="true"></i>
+      <span class="ticketText">2017.12.17 Ticket</span>
+    </a>
+  </div>  
+  <script>
+    window.onload = function() {
+      // youtube_wrapのheightを設定
+      var player = document.getElementById('player');
+      var youtubeWrap = document.getElementsByClassName('youtube_wrap')[0];
+      youtubeWrap.style.height = player.offsetHeight + 'px';
+      console.log('height', player.offsetHeight)
+
+      // lyricsのheightを設定
+      var lyrics = document.getElementById('lyrics');
+      var height = getLyricsHeight();
+      lyrics.style.height = height;
+      lyrics.firstElementChild.style.height = height;
+    }
+  </script>
+</body>
+</html>
