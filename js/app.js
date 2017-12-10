@@ -23,6 +23,11 @@ var songs = {
     ,path: 'dangan.html'
     ,videoKey:'knnUq39VAuQ'
   }
+  ,mousou_chu: {
+    songName: '妄想Chu⤴︎'
+    ,path: 'mousou_chu.html'
+    ,videoKey: 'VpSE3h_M7yU'
+  }
 }
 
 // api install
