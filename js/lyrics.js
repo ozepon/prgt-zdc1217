@@ -5,11 +5,11 @@ window.onload = function() {
     for(var i = 0; i < callList.length; i++) {
       callList[i].style.display = 'none';
     }
+    // show anotetion
+    document.getElementsByClassName('comming_soon')[0].style.display = 'block';
   }
   
 
-  // show anotetion
-  document.getElementsByClassName('comming_soon')[0].style.display = 'block';
   
   // font size 変更周り　--------
   var preLyric;
