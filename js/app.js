@@ -1,6 +1,30 @@
 // site title
 var siteTitle = '\\ PRGTのコール /'
 
+// songs
+var songs = {
+  setuna_sora: {
+    songName: 'セツナソラ'
+    ,path: 'setuna_sora.html'
+    ,videoKey: 'w9u2SkIVRZg'
+  }
+  ,zero_ichi: {
+    songName: '01-ゼロイチ'
+    ,path: 'zero_ichi.html'
+    ,videoKey:'S1AP-AX8Mds'
+  }
+  ,dod: {
+    songName: 'Dream on, Dreamers'
+    ,path: 'dod.html'
+    ,videoKey:'Ora-X9RaHkA'
+  }
+  ,dangan: {
+    songName: '弾丸ハイジャンプ'
+    ,path: 'dangan.html'
+    ,videoKey:'knnUq39VAuQ'
+  }
+}
+
 // api install
 var tag = document.createElement('script');
 
@@ -8,12 +32,6 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-
-var videoIdList = {
-  'setuna_sora':'w9u2SkIVRZg'
-  ,'zero_ichi' : 'S1AP-AX8Mds'
-  ,'dod' : 'Ora-X9RaHkA'
-}
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
@@ -21,7 +39,7 @@ function createPlayer(videoIdKey) {
   player = new YT.Player('player', {
     height: '360',
     width: '640',
-    videoId: videoIdList[videoIdKey],
+    videoId: videoIdKey,
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -40,7 +58,10 @@ function createPlayer(videoIdKey) {
 }
 
 function onYouTubeIframeAPIReady() {
-  var videoIdKey = document.getElementsByTagName('body')[0].getAttribute('data-page-name');
+  var key = getUrlVars()['song'];
+  var videoIdKey = songs[key]['videoKey'];
+
+  // var videoIdKey = document.getElementsByTagName('body')[0].getAttribute('data-page-name');
   createPlayer(videoIdKey);
 }
 
@@ -76,4 +97,23 @@ function getLyricsHeight() {
   var windowHeight = window.innerHeight;
 
   return (windowHeight - header.offsetHeight - youtubeWrap.offsetHeight) + 'px';
+}
+/**
+ * URL解析して、クエリ文字列を返す
+ * @returns {Array} クエリ文字列
+ */
+function getUrlVars() {
+    var vars = [], max = 0, hash = "", array = "";
+    var url = window.location.search;
+
+        //?を取り除くため、1から始める。複数のクエリ文字列に対応するため、&で区切る
+    hash  = url.slice(1).split('&');    
+    max = hash.length;
+    for (var i = 0; i < max; i++) {
+        array = hash[i].split('=');    //keyと値に分割。
+        vars.push(array[0]);    //末尾にクエリ文字列のkeyを挿入。
+        vars[array[0]] = array[1];    //先ほど確保したkeyに、値を代入。
+    }
+
+    return vars;
 }

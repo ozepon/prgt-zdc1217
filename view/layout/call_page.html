@@ -15,7 +15,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <title>PRGT/曲名</title>
+  <title>PRGT</title>
   <!-- ogp start -->
   <meta property="og:site_name" content="\ PRGTのコール /">
   <meta property="og:title" content="PRGTのコール">
@@ -28,14 +28,14 @@
   <!-- ogp end -->
   <!-- twitter widget -->
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="/prgt-zdc1217/css/app.css">
-  <script src="/prgt-zdc1217/js/app.js"></script>
+  <link rel="stylesheet" href="../../css/app.css">
+  <script src="../../js/app.js"></script>
 </head>
 <body>
   <header class="nav is-info">
     <div class="nav-left">
       <span class="nav-item">
-        <a id="siteTitle" href='/prgt-zdc1217/'></a>
+        <a id="siteTitle" href='../../index.html'></a>
       </span>
     </div>
     <div class="nav-right">
@@ -50,7 +50,7 @@
     <div id="player"></div>
   </div>
   <div id="lyrics">
-    <iframe src="./lyrics/setuna_sora.html" frameborder="0"></iframe>
+    <iframe id='lyricsFrame' src="" frameborder="0"></iframe>
   </div>
   <div class="song_footer">
     <div class="ticket_link">
@@ -72,6 +72,14 @@
   </div>
   <script>
     window.onload = function() {
+      // page data
+      var key = getUrlVars()['song'];
+      var song = songs[key];
+
+      if(song) {
+        // todo: songが無い場合はエラーのするべき
+      }
+
       // siteTitleを設定
       document.getElementById('siteTitle').innerHTML = siteTitle;
       // lyricsのheightを設定
@@ -79,6 +87,14 @@
       var height = getLyricsHeight();
       lyrics.style.height = height;
       lyrics.firstElementChild.style.height = height;
+
+      // title を設定
+      var title = document.getElementsByTagName('title')[0];
+      title.innerHTML = siteTitle + '【' + song['songName'] + '】';
+
+      // iframeを設定
+      var iframe = document.getElementById('lyricsFrame');
+      iframe.src = '../lyrics/' + song['path'];
     }
   </script>
 </body>
