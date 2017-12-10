@@ -1,3 +1,26 @@
+.buttons{
+  display: flex;
+  position: absolute;
+  right: 0;
+  flex-direction: row;
+}
+.buttons__text {
+  text-indent: initial;
+  padding: 0 .5rem;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+.button {
+  background: whitesmoke;
+  border-radius: 1rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  height: 2rem;
+  width: 2rem;
+  text-indent: initial;
+  box-shadow: #9E9E9E 0px 1px 1px 0px;
+}
 pre {
   color: #69707a;
   font-size: .6rem;
@@ -25,6 +48,7 @@ pre {
   text-indent: 0.5rem;
 }
 .songHeader {
+  position: relative;
   font-weight: bold;
   border-left: 1rem solid #ff3860;;
   font-size: 1rem;
