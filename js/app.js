@@ -16,12 +16,12 @@ var songs = {
   ,dod: {
     songName: 'Dream on, Dreamers'
     ,path: 'dod.html'
-    ,videoKey:'Ora-X9RaHkA'
+    ,videoKey:'PNF3fKdEErA'
   }
   ,dangan: {
     songName: '弾丸ハイジャンプ'
     ,path: 'dangan.html'
-    ,videoKey:'knnUq39VAuQ'
+    ,videoKey:'8DQPK25dQQc'
   }
   ,mousou_chu: {
     songName: '妄想Chu⤴︎'
